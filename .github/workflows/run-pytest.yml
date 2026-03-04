@@ -34,7 +34,7 @@ jobs:
           pytest aitests --html=report.html
 
       - name: Upload HTML Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pytest-report
           path: report.html
