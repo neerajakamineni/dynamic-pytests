@@ -1,0 +1,9 @@
+claims:
+  - claim_amount: 500
+    coverage: 0.8
+    documentation: true
+    expected_status: ACCEPTED
+  - claim_amount: 0
+    coverage: 0.8
+    documentation: true
+    expected_status: REJECTED
