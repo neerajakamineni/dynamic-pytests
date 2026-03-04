@@ -1,3 +1,43 @@
+#name: Run Pytest for Claims Automation
+#
+#on:
+#  push:
+#    branches:
+#      - feature/add-pytest-scripts
+#  pull_request:
+#    branches:
+#      - main
+#
+#jobs:
+#  pytest:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#
+#      - name: Setup Python 3.12
+#        uses: actions/setup-python@v4
+#        with:
+#          python-version: 3.12
+#
+#      - name: Install dependencies
+#        run: |
+#          python -m venv .venv
+#          source .venv/bin/activate
+#          pip install --upgrade pip
+#          pip install pytest pytest-html pyyaml
+#
+#      - name: Run Pytest
+#        run: |
+#          source .venv/bin/activate
+#          pytest aitests --html=report.html
+#
+#      - name: Upload HTML Report
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: pytest-report
+#          path: report.html
 name: Run Pytest for Claims Automation
 
 on:
@@ -10,7 +50,7 @@ on:
 
 jobs:
   pytest:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest   # Use windows-latest if you prefer
 
     steps:
       - name: Checkout code
@@ -23,14 +63,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m venv .venv
-          source .venv/bin/activate
           pip install --upgrade pip
           pip install pytest pytest-html pyyaml
 
       - name: Run Pytest
         run: |
-          source .venv/bin/activate
           pytest aitests --html=report.html
 
       - name: Upload HTML Report
